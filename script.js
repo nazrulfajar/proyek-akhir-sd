@@ -44,6 +44,49 @@ function addImage() {
   showSingleImage();
 }
 
+function deleteImage(imageUrl) {
+  // Check if the list is empty
+  if (!head) {
+    return;
+  }
+
+  // Find the node to be deleted
+  let current = head;
+  do {
+    if (current.data === imageUrl) {
+      break;
+    }
+    current = current.next;
+  } while (current !== head);
+
+  // If the node is not found, return
+  if (!current) {
+    return;
+  }
+
+  // Remove the node from the list
+  if (current === head) {
+    // If deleting head, update head
+    head = current.next;
+  }
+
+  const prevNode = current.prev;
+  const nextNode = current.next;
+  prevNode.next = nextNode;
+  nextNode.prev = prevNode;
+
+  // Update single image if it's the deleted image
+
+  showSingleImage();
+
+
+  // Remove the deleted node
+  current = null;
+
+  // Display the remaining images
+  displayListImages();
+}
+
 // Function to display all images in the list
 function displayListImages() {
   const imageContainer = document.getElementById("image-container");
