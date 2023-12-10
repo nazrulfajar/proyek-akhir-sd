@@ -9,13 +9,59 @@ body {
   margin-top: 10px;
 }
 
-img {
+#image-container img {
   width: 200px;
   height: 200px;
   margin: 5px;
   object-fit: cover;
 }
 
-.image_list_container {
-  display: flex;
+.container {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#single-image-container img {
+  /* width: 75vw; */
+  height: 60vh;
+  margin : 10px;
+  object-fit: cover;
+}
+
+button {
+  width: 150px;
+  height: 40px;
+  border: none;
+  border-radius: 10px;
+  color: white;
+}
+
+.nav-btn:hover {
+  background-color: rgba(66, 125, 157, 0.5);
+}
+
+.nav-btn {
+  background-color: rgb(66, 125, 157);
+}
+
+#del-btn {
+  background-color: rgb(22, 72, 99);
+}
+#del-btn:hover {
+  background-color: rgb(22, 72, 99, 0.5);
+}
+
+#add-btn {
+  background-color: rgb(120, 177, 193);
+}
+#add-btn:hover {
+  background-color: rgb(120, 177, 193, 0.5);
+}
+
+#image-url {
+  height: 35px;
+  width: 200px;
+  border-radius: 10px;
 }
