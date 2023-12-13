@@ -60,20 +60,20 @@ function deleteImage() {
     } else {
       // If deleting head, update head
       head = current.next;
+
+      const prevNode = current.prev;
+      const nextNode = current.next;
+      prevNode.next = nextNode;
+      nextNode.prev = prevNode;
+
+      // Remove the deleted node
+      current = null;
     }
   }
-    const prevNode = current.prev;
-    const nextNode = current.next;
-    prevNode.next = nextNode;
-    nextNode.prev = prevNode;
 
   // Update single image if it's the deleted image
 
   showSingleImage();
-
-
-  // Remove the deleted node
-  current = null;
 
   // Display the remaining images
   displayListImages();
