@@ -44,36 +44,28 @@ function addImage() {
   showSingleImage();
 }
 
-function deleteImage(imageUrl) {
+function deleteImage() {
   // Check if the list is empty
   if (!head) {
     return;
   }
 
-  // Find the node to be deleted
   let current = head;
-  do {
-    if (current.data === imageUrl) {
-      break;
-    }
-    current = current.next;
-  } while (current !== head);
-
-  // If the node is not found, return
-  if (!current) {
-    return;
-  }
 
   // Remove the node from the list
   if (current === head) {
-    // If deleting head, update head
-    head = current.next;
+    // If deleting the only node, set head to null
+    if (head.next === head) {
+      head = null;
+    } else {
+      // If deleting head, update head
+      head = current.next;
+    }
   }
-
-  const prevNode = current.prev;
-  const nextNode = current.next;
-  prevNode.next = nextNode;
-  nextNode.prev = prevNode;
+    const prevNode = current.prev;
+    const nextNode = current.next;
+    prevNode.next = nextNode;
+    nextNode.prev = prevNode;
 
   // Update single image if it's the deleted image
 
